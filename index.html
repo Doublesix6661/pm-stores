@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Stores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>PM Stores</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+
+        <a href="https://wa.me/254708986217?text=Hello%20PM%20Stores,%20I%20would%20like%20to%20make%20an%20inquiry."
+           class="header-whatsapp"
+           target="_blank">
+            WhatsApp
+        </a>
+    </nav>
+</header>
+
+
+<section id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <h2>Freshness You Can Trust</h2>
+
+            <p>
+                Welcome to PM Stores — your trusted place for
+                fresh fruits, traditional foods, vegetables,
+                spices and everyday shop products.
+            </p>
+
+            <a href="#products" class="shop-button">
+                Shop Now
+            </a>
+
+        </div>
+
+        <div class="hero-icon"></div>
+
+    </div>
+
+</section>
+
+
+<!-- SHOPPING CART -->
+
+<div class="floating-cart" onclick="toggleCart()">
+    🛒
+    <span id="cartCount" class="cart-count">0</span>
+</div>
+
+
+<div id="cartPopup" class="cart-popup">
+
+    <div class="cart-header">
+
+        <h3>Your Cart</h3>
+
+        <button type="button" onclick="toggleCart()">
+            ×
+        </button>
+
+    </div>
+
+    <div id="cartItems">
+        <p>Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+
+        <strong>
+            Items:
+            <span id="cartTotal">0</span>
+        </strong>
+
+        <button type="button"
+                class="whatsapp-cart-button"
+                onclick="openCheckout()">
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div id="checkoutPopup" class="checkout-popup">
+
+    <div class="checkout-box">
+
+        <div class="checkout-header">
+
+            <h3>Checkout</h3>
+
+            <button type="button"
+                    onclick="closeCheckout()">
+                ×
+            </button>
+
+        </div>
+
+        <div class="checkout-content">
+
+            <p>
+                Enter your details before sending your order.
+            </p>
+
+            <form onsubmit="submitCheckout(event)">
+
+                <label for="customerName">
+                    Full Name
+                </label>
+
+                <input type="text"
+                       id="customerName"
+                       placeholder="Enter your full name"
+                       required>
+
+
+                <label for="customerPhone">
+                    Phone Number
+                </label>
+
+                <input type="tel"
+                       id="customerPhone"
+                       placeholder="07XXXXXXXX"
+                       required>
+
+
+                <label for="deliveryLocation">
+                    Delivery Location
+                </label>
+
+                <input type="text"
+                       id="deliveryLocation"
+                       placeholder="e.g. Utawala, Nairobi"
+                       required>
+
+
+                <label for="orderNotes">
+                    Additional Instructions
+                </label>
+
+                <textarea id="orderNotes"
+                          rows="4"
+                          placeholder="Any additional information? (Optional)"></textarea>
+
+
+                <button type="submit"
+                        class="checkout-button">
+                    Send Order on WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+    <h2>Our Products</h2>
+
+    <p class="products-intro">
+        Explore our selection of fresh fruits, traditional foods,
+        vegetables, spices and other quality shop products.
+    </p>
+
+
+    <!-- SEARCH -->
+
+    <div class="product-search">
+
+        <input type="text"
+               id="productSearch"
+               placeholder="Search for a product..."
+               onkeyup="searchProducts()">
+
+    </div>
+
+    <p id="noResults" class="no-results">
+        No products found.
+    </p>
+
+
+    <!-- FRESH FRUITS -->
+
+    <h3 class="category-title">
+        Fresh Fruits
+    </h3>
+
+
+    <div class="product-container">
+
+
+        <!-- APPLES -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Apples</h4>
+
+            <p>
+                Fresh and juicy apples.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="choose-type-button"
+                    onclick="toggleOptions('applesOptions')">
+                Choose Type
+            </button>
+
+
+            <div id="applesOptions"
+                 class="product-options">
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Green Apples
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Green Apples', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Green-Apples">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Green Apples', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Red Apples
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Red Apples', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Red-Apples">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Red Apples', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        class="add-options-button"
+                        onclick="addSelectedOptions('Apples')">
+                    Add Selected
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MANGOES -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Mangoes</h4>
+
+            <p>
+                Fresh and sweet mangoes.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Mangoes')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- GRAPES -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Grapes</h4>
+
+            <p>
+                Fresh and sweet grapes.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="choose-type-button"
+                    onclick="toggleOptions('grapesOptions')">
+                Choose Type
+            </button>
+
+
+            <div id="grapesOptions"
+                 class="product-options">
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Green Grapes
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Green Grapes', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Green-Grapes">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Green Grapes', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Black Grapes
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Black Grapes', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Black-Grapes">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Black Grapes', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        class="add-options-button"
+                        onclick="addSelectedOptions('Grapes')">
+                    Add Selected
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVOCADOS -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Avocados</h4>
+
+            <p>
+                Fresh quality avocados.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="choose-type-button"
+                    onclick="toggleOptions('avocadoOptions')">
+                Choose Type
+            </button>
+
+
+            <div id="avocadoOptions"
+                 class="product-options">
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Hass Avocado
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Hass Avocado', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Hass-Avocado">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Hass Avocado', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Green Avocado
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Green Avocado', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Green-Avocado">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Green Avocado', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Kesi Avocado
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Kesi Avocado', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Kesi-Avocado">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Kesi Avocado', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Big Avocado
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Big Avocado', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Big-Avocado">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Big Avocado', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        class="add-options-button"
+                        onclick="addSelectedOptions('Avocados')">
+                    Add Selected
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORANGES -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Oranges</h4>
+
+            <p>
+                Different types of fresh oranges.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="choose-type-button"
+                    onclick="toggleOptions('orangeOptions')">
+                Choose Type
+            </button>
+
+
+            <div id="orangeOptions"
+                 class="product-options">
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Pexi Oranges
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Pexi Oranges', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Pexi-Oranges">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Pexi Oranges', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Imported Oranges
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Imported Oranges', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Imported-Oranges">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Imported Oranges', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Local Oranges
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Local Oranges', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Local-Oranges">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Local Oranges', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Seedless Oranges
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Seedless Oranges', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Seedless-Oranges">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Seedless Oranges', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        class="add-options-button"
+                        onclick="addSelectedOptions('Oranges')">
+                    Add Selected
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BANANAS -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Bananas</h4>
+
+            <p>
+                Fresh ripe bananas.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Bananas')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- PINEAPPLES -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Pineapples</h4>
+
+            <p>
+                Fresh and sweet pineapples.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="choose-type-button"
+                    onclick="toggleOptions('pineappleOptions')">
+                Choose Type
+            </button>
+
+
+            <div id="pineappleOptions"
+                 class="product-options">
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Ugandan Pineapple
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Ugandan Pineapple', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Ugandan-Pineapple">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Ugandan Pineapple', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Kenyan Pineapple
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Kenyan Pineapple', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Kenyan-Pineapple">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Kenyan Pineapple', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        class="add-options-button"
+                        onclick="addSelectedOptions('Pineapples')">
+                    Add Selected
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TRADITIONAL FOODS -->
+
+    <h3 class="category-title">
+        Traditional Foods
+    </h3>
+
+
+    <div class="product-container">
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Arrowroots (Nduma)</h4>
+
+            <p>
+                Fresh local arrowroots.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Arrowroots (Nduma)')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Sweet Potatoes (Ngwaci)</h4>
+
+            <p>
+                Fresh sweet potatoes.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Sweet Potatoes (Ngwaci)')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Irish Potatoes</h4>
+
+            <p>
+                Fresh quality potatoes.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Irish Potatoes')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Cassava</h4>
+
+            <p>
+                Fresh local cassava.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Cassava')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Yams</h4>
+
+            <p>
+                Fresh quality yams.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Yams')">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- VEGETABLES -->
+
+    <h3 class="category-title">
+        Vegetables
+    </h3>
+
+
+    <div class="product-container">
+
+
+        <!-- CAPSICUMS -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Capsicums</h4>
+
+            <p>
+                Fresh green, red and yellow capsicums.
+            </p>
+
+            <strong class="price">
+                Price available on WhatsApp
+            </strong>
+
+            <button type="button"
+                    class="choose-type-button"
+                    onclick="toggleOptions('capsicumOptions')">
+                Choose Type
+            </button>
+
+
+            <div id="capsicumOptions"
+                 class="product-options">
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Green Capsicum
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Green Capsicum', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Green-Capsicum">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Green Capsicum', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Red Capsicum
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Red Capsicum', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Red-Capsicum">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Red Capsicum', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <span class="option-name">
+                        Yellow Capsicum
+                    </span>
+
+                    <div class="option-controls">
+
+                        <button type="button"
+                                onclick="changeOption('Yellow Capsicum', -1)">
+                            -
+                        </button>
+
+                        <span id="qty-Yellow-Capsicum">
+                            0
+                        </span>
+
+                        <button type="button"
+                                onclick="changeOption('Yellow Capsicum', 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        class="add-options-button"
+                        onclick="addSelectedOptions('Capsicums')">
+                    Add Selected
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOMATOES -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Tomatoes</h4>
+
+            <p>
+                Fresh tomatoes.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Tomatoes')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- ONIONS -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Onions</h4>
+
+            <p>
+                Fresh onions.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Onions')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- CUCUMBER -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Cucumber</h4>
+
+            <p>
+                Fresh cucumbers.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Cucumber')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- GARLIC -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Garlic</h4>
+
+            <p>
+                Fresh garlic.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Garlic')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- GINGER -->
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Ginger</h4>
+
+            <p>
+                Fresh ginger.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Ginger')">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SPICES -->
+
+    <h3 class="category-title">
+        Spices
+    </h3>
+
+
+    <div class="product-container">
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Pilipili</h4>
+
+            <p>
+                Fresh chillies.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Pilipili')">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Lemon</h4>
+
+            <p>
+                Fresh lemons.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Lemon')">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- OTHER SHOP PRODUCTS -->
+
+    <h3 class="category-title">
+        Other Shop Products
+    </h3>
+
+
+    <div class="product-container">
+
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <h4>Shop Products</h4>
+
+            <p>
+                We also stock a variety of everyday
+                shop products.
+            </p>
+
+            <button type="button"
+                    class="cart-button"
+                    onclick="addToCart('Shop Products')">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY CHOOSE US -->
+
+<section id="why-us">
+
+    <h2>Why Choose PM Stores?</h2>
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <h3>Fresh Products</h3>
+
+            <p>
+                We provide fresh fruits, vegetables
+                and quality food products.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <h3>Quality Products</h3>
+
+            <p>
+                We carefully select products to give
+                our customers good quality.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <h3>Affordable Prices</h3>
+
+            <p>
+                We aim to provide quality products
+                at reasonable prices.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <h3>Easy Ordering</h3>
+
+            <p>
+                Add products to your cart and send
+                your complete order through WhatsApp.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about-content">
+
+        <div class="about-text">
+
+            <h2>About PM Stores</h2>
+
+            <p>
+                PM Stores is a trusted shop providing fresh,
+                quality and affordable food products to customers
+                in Nairobi and beyond.
+            </p>
+
+            <p>
+                From fresh fruits and vegetables to traditional
+                foods, spices and everyday shop products, we aim
+                to make shopping simple and convenient.
+            </p>
+
+            <p>
+                Our focus is on quality products, good customer
+                service and convenient ordering through WhatsApp.
+            </p>
+
+            <a href="#contact"
+               class="about-button">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>PM Stores</h3>
+
+            <p>Freshness</p>
+            <p>Quality</p>
+            <p>Convenience</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2>Contact PM Stores</h2>
+
+    <p class="contact-intro">
+        Have a question or want to place an order?
+        Get in touch with us.
+    </p>
+
+
+    <div class="contact-container">
+
+
+        <div class="contact-info">
+
+            <h3>Get In Touch</h3>
+
+            <p>Phone: 0708376129</p>
+            <p>WhatsApp: 0708986217</p>
+            <p>Location: Nairobi, Kenya</p>
+
+            <p>
+                Fresh products and everyday shop items.
+            </p>
+
+        </div>
+
+
+        <div class="contact-form">
+
+            <h3>Send Us a Message</h3>
+
+            <form onsubmit="sendToWhatsApp(event)">
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input type="text"
+                       id="name"
+                       placeholder="Enter your name"
+                       required>
+
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea id="message"
+                          rows="5"
+                          placeholder="Write your message"
+                          required></textarea>
+
+
+                <button type="submit">
+                    Send on WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <div class="footer-section">
+
+            <h3>PM Stores</h3>
+
+            <p>
+                Fresh fruits, traditional foods,
+                vegetables, spices and everyday shop products.
+            </p>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Contact</h3>
+
+            <p>Phone: 0708376129</p>
+            <p>WhatsApp: 0708986217</p>
+            <p>Nairobi, Kenya</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            &copy; 2026 PM Stores. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* CONTACT FORM */
+
+function sendToWhatsApp(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+    const phoneNumber =
+        "254708986217";
+
+    const whatsappMessage =
+        "Hello PM Stores!\n\n" +
+        "Name: " + name + "\n" +
+        "Message: " + message;
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(whatsappMessage);
+
+    window.open(whatsappURL, "_blank");
+}
+
+
+/* SEARCH PRODUCTS */
+
+function searchProducts() {
+
+    const search =
+        document.getElementById("productSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    const noResults =
+        document.getElementById("noResults");
+
+    let found = false;
+
+    products.forEach(function(product) {
+
+        const productName =
+            product.querySelector("h4")
+            .textContent
+            .toLowerCase();
+
+        if (productName.includes(search)) {
+
+            product.style.display = "";
+            found = true;
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+    noResults.style.display =
+        found ? "none" : "block";
+}
+
+
+/* SHOPPING CART */
+
+let cart = [];
+
+
+/* ADD NORMAL PRODUCT */
+
+function addToCart(productName) {
+
+    const existingProduct =
+        cart.find(function(item) {
+            return item.name === productName;
+        });
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    } else {
+
+        cart.push({
+            name: productName,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    document
+        .getElementById("cartPopup")
+        .classList.add("active");
+}
+
+
+/* OPTION QUANTITIES */
+
+let optionQuantities = {};
+
+
+/* SHOW / HIDE OPTIONS */
+
+function toggleOptions(optionId) {
+
+    const options =
+        document.getElementById(optionId);
+
+    options.classList.toggle("show");
+}
+
+
+/* CHANGE OPTION QUANTITY */
+
+function changeOption(optionName, amount) {
+
+    if (!optionQuantities[optionName]) {
+        optionQuantities[optionName] = 0;
+    }
+
+    optionQuantities[optionName] += amount;
+
+    if (optionQuantities[optionName] < 0) {
+        optionQuantities[optionName] = 0;
+    }
+
+    const elementId =
+        "qty-" +
+        optionName.replaceAll(" ", "-");
+
+    document.getElementById(elementId)
+        .textContent =
+        optionQuantities[optionName];
+}
+
+
+/* ADD SELECTED OPTIONS */
+
+function addSelectedOptions(categoryName) {
+
+    let added = false;
+
+    const categoryOptions = {
+
+        "Apples": [
+            "Green Apples",
+            "Red Apples"
+        ],
+
+        "Grapes": [
+            "Green Grapes",
+            "Black Grapes"
+        ],
+
+        "Avocados": [
+            "Hass Avocado",
+            "Green Avocado",
+            "Kesi Avocado",
+            "Big Avocado"
+        ],
+
+        "Oranges": [
+            "Pexi Oranges",
+            "Imported Oranges",
+            "Local Oranges",
+            "Seedless Oranges"
+        ],
+
+        "Pineapples": [
+            "Ugandan Pineapple",
+            "Kenyan Pineapple"
+        ],
+
+        "Capsicums": [
+            "Green Capsicum",
+            "Red Capsicum",
+            "Yellow Capsicum"
+        ]
+
+    };
+
+
+    const options =
+        categoryOptions[categoryName] || [];
+
+
+    options.forEach(function(optionName) {
+
+        const quantity =
+            optionQuantities[optionName] || 0;
+
+        if (quantity > 0) {
+
+            const existingProduct =
+                cart.find(function(item) {
+                    return item.name === optionName;
+                });
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity += quantity;
+
+            } else {
+
+                cart.push({
+                    name: optionName,
+                    quantity: quantity
+                });
+
+            }
+
+
+            optionQuantities[optionName] = 0;
+
+
+            const elementId =
+                "qty-" +
+                optionName.replaceAll(" ", "-");
+
+
+            document.getElementById(elementId)
+                .textContent = "0";
+
+
+            added = true;
+
+        }
+
+    });
+
+
+    if (!added) {
+
+        alert("Please choose at least one option.");
+
+        return;
+
+    }
+
+
+    updateCart();
+
+    document
+        .getElementById("cartPopup")
+        .classList.add("active");
+}
+
+
+/* UPDATE CART */
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+
+    cartItems.innerHTML = "";
+
+    let totalItems = 0;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+            "<p>Your cart is empty.</p>";
+
+    }
+
+
+    cart.forEach(function(product, index) {
+
+        totalItems += product.quantity;
+
+
+        const item =
+            document.createElement("div");
+
+        item.className = "cart-item";
+
+
+        item.innerHTML = `
+
+            <div class="cart-item-name">
+                ${product.name} x ${product.quantity}
+            </div>
+
+            <div class="quantity-controls">
+
+                <button type="button"
+                        onclick="changeQuantity(${index}, -1)">
+                    -
+                </button>
+
+                <span>
+                    ${product.quantity}
+                </span>
+
+                <button type="button"
+                        onclick="changeQuantity(${index}, 1)">
+                    +
+                </button>
+
+                <button type="button"
+                        class="remove-button"
+                        onclick="removeFromCart(${index})">
+                    Remove
+                </button>
+
+            </div>
+
+        `;
+
+
+        cartItems.appendChild(item);
+
+    });
+
+
+    cartCount.textContent =
+        totalItems;
+
+    cartTotal.textContent =
+        totalItems;
+}
+
+
+/* CHANGE CART QUANTITY */
+
+function changeQuantity(index, amount) {
+
+    if (!cart[index]) {
+        return;
+    }
+
+
+    cart[index].quantity += amount;
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    updateCart();
+}
+
+
+/* REMOVE FROM CART */
+
+function removeFromCart(index) {
+
+    if (!cart[index]) {
+        return;
+    }
+
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+
+/* OPEN / CLOSE CART */
+
+function toggleCart() {
+
+    const cartPopup =
+        document.getElementById("cartPopup");
+
+    cartPopup.classList.toggle("active");
+}
+
+
+/* OPEN CHECKOUT */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("checkoutPopup")
+        .classList.add("active");
+}
+
+
+/* CLOSE CHECKOUT */
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkoutPopup")
+        .classList.remove("active");
+}
+
+
+/* SUBMIT CHECKOUT */
+
+function submitCheckout(event) {
+
+    event.preventDefault();
+
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+
+    const customerName =
+        document.getElementById("customerName")
+        .value
+        .trim();
+
+
+    const customerPhone =
+        document.getElementById("customerPhone")
+        .value
+        .trim();
+
+
+    const deliveryLocation =
+        document.getElementById("deliveryLocation")
+        .value
+        .trim();
+
+
+    const orderNotes =
+        document.getElementById("orderNotes")
+        .value
+        .trim();
+
+
+    let whatsappMessage =
+        "Hello PM Stores!\n\n" +
+        "I would like to place an order.\n\n" +
+        "CUSTOMER DETAILS\n" +
+        "Name: " + customerName + "\n" +
+        "Phone: " + customerPhone + "\n" +
+        "Delivery Location: " +
+        deliveryLocation +
+        "\n\n" +
+        "ORDER\n";
+
+
+    cart.forEach(function(product) {
+
+        whatsappMessage +=
+            "- " +
+            product.name +
+            " x" +
+            product.quantity +
+            "\n";
+
+    });
+
+
+    if (orderNotes !== "") {
+
+        whatsappMessage +=
+            "\nADDITIONAL INSTRUCTIONS\n" +
+            orderNotes +
+            "\n";
+
+    }
+
+
+    whatsappMessage +=
+        "\nPlease confirm the prices and availability.\n\n" +
+        "Thank you.";
+
+
+    const phoneNumber =
+        "254708986217";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(whatsappMessage);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+}
+
+
+/* SEARCH EVENT */
+
+document
+    .getElementById("productSearch")
+    .addEventListener(
+        "input",
+        searchProducts
+    );
+
+
+/* INITIALIZE CART */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
